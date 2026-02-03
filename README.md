@@ -33,7 +33,7 @@ Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figm
 
 ## 🔗 Acesso ao Projeto
 
-- **GitHub Pages:** [Clique aqui para acessar o site](https://ochoamiguel.github.io/Portifolio-Parte1/)
+- **GitHub Pages:** [Clique aqui para acessar o site](https://ochoamiguel.github.io/Portifolio/)
 - **Repositório GitHub:** [Acesse o código-fonte aqui](https://github.com/ochoamiguel/Portifolio-Parte1)
 
 ---
