@@ -7,5 +7,5 @@
   { "nome": "Informática<br><small>(Windows/Office)</small>", "classe": "info-icon", "icone": "images/icons/informatica.svg" },
   { "nome": "Figma", "classe": "figma-icon", "icone": "images/icons/figma.svg" },
   { "nome": "Python", "classe": "python-icon", "icone": "images/icons/codigo.svg" },
-  { "nome": "SQL", "classe": "sql-icon", "icone": "images/icons/sql.svg" }
+  { "nome": "SQL", "classe": "sql-icon", "icone": "images/icons/codigo.svg" }
 ]

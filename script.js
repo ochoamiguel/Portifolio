@@ -98,7 +98,6 @@ function mostrarAviso(texto, cor = "#4caf50") {
 }
 
 document.getElementById("form-contato").addEventListener("submit", function(event) {
-
   event.preventDefault();
 
   const nome = document.getElementById("nome").value;
@@ -114,28 +113,45 @@ document.getElementById("form-contato").addEventListener("submit", function(even
   errom.textContent = "";
   aviso.textContent = "";
 
-  if (nome.trim() === ""){
-    erron.innerText = "Insira um nome válido!"
+  let valido = true;
+
+  if (nome.trim() === "") {
+    erron.innerText = "Insira um nome válido!";
     setTimeout(() => (erron.textContent = ""), 3000);
+    valido = false;
   }
 
   if (!email.includes("@") || !email.includes(".")) {
     erroe.innerText = "Insira um email válido!";
     setTimeout(() => (erroe.textContent = ""), 3000);
+    valido = false;
   }
 
   if (mensagem.trim() === "") {
     errom.innerText = "Digite uma mensagem!";
     setTimeout(() => (errom.textContent = ""), 3000);
+    valido = false;
   }
 
-else{
- mostrarAviso("Mensagem enviada!");
-}
-
-this.reset();
-
+  if (valido) {
+    fetch('https://formspree.io/f/xrerjgap', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome, email, mensagem })
+    })
+    .then(res => {
+      if (res.ok) {
+        mostrarAviso("Mensagem enviada!");
+        this.reset();
+      } else {
+        mostrarAviso("Erro ao enviar. Tente novamente.", "#ff4d4d");
+      }
+    })
+    .catch(() => mostrarAviso("Erro ao enviar. Tente novamente.", "#ff4d4d"));
+  }
 });
+
+
 
 //theme button
 function toggleMode() {
@@ -152,41 +168,47 @@ hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
-fetch('projetos.json')
-  .then(res => res.json())
-  .then(projetos => {
-    const grid = document.getElementById('projetos-grid');
 
-    projetos.forEach(projeto => {
-      grid.innerHTML += `
-        <div class="projetos-card">
-          <a href="${projeto.link}" target="_blank">
-            <div class="projetos-card-image">
-              <img src="${projeto.imagem}" alt="Preview do projeto ${projeto.nome}">
-            </div>
-            <div class="projetos-card-content">
-              <h3 class="projetos-card-title">${projeto.nome}</h3>
-              <p class="projetos-card-description">${projeto.desc}</p>
-            </div>
-          </a>
-        </div>
-      `;
-    });
-  });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  fetch('projetos.json')
+    .then(res => res.json())
+    .then(projetos => {
+      const grid = document.getElementById('projetos-grid');
+      projetos.forEach(projeto => {
+        grid.innerHTML += `
+          <div class="projetos-card">
+            <a href="${projeto.link}" target="_blank">
+              <div class="projetos-card-image">
+                <img src="${projeto.imagem}" alt="Preview do projeto ${projeto.nome}">
+              </div>
+              <div class="projetos-card-content">
+                <h3 class="projetos-card-title">${projeto.nome}</h3>
+                <p class="projetos-card-description">${projeto.desc}</p>
+              </div>
+            </a>
+          </div>
+        `;
+      });
+    })
+    .catch(err => console.error('Erro ao carregar projetos.json:', err));
 
   fetch('habilidades.json')
-  .then(res => res.json())
-  .then(habilidades => {
-    const grid = document.getElementById('skills-grid');
-
-    habilidades.forEach(hab => {
-      grid.innerHTML += `
-        <div class="skill-card">
-          <div class="icon-wrapper ${hab.classe}">
-            <!-- ícone mantido via CSS como antes -->
+    .then(res => res.json())
+    .then(habilidades => {
+      const grid = document.getElementById('skills-grid');
+      habilidades.forEach(hab => {
+        grid.innerHTML += `
+          <div class="skill-card">
+            <div class="icon-wrapper ${hab.classe}">
+              <img src="${hab.icone}" alt="${hab.nome}" width="40" height="40">
+            </div>
+            <h3>${hab.nome}</h3>
           </div>
-          <h3>${hab.nome}</h3>
-        </div>
-      `;
-    });
-  });
+        `;
+      });
+    })
+    .catch(err => console.error('Erro ao carregar habilidades.json:', err));
+
+});

@@ -702,6 +702,27 @@ main {
   background-color: #ff7f00;
 }
 
+.python-icon {
+  background-color: #3572A5;
+}
+
+.sql-icon {
+  background-color: #00758f;
+}
+
+.icon-wrapper img {
+  width: clamp(30px, 5vw, 40px);
+  height: clamp(30px, 5vw, 40px);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.skills-grid:has(.skill-card:last-child:nth-child(odd)) .skill-card:last-child {
+  grid-column: 1 / -1;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
 .skill-card h3 {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 600;
@@ -728,6 +749,7 @@ main {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .projetos-title {
@@ -919,11 +941,11 @@ main {
 }
 
 .email-icon {
-  background: linear-gradient(90deg, #9030f8, #9685f4, #3379c9, #306bdf);
+  background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
 }
 
 .phone-icon {
-  background: linear-gradient(90deg, #9030f8, #9685f4, #3379c9, #306bdf);
+  background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
 }
 
 .contato-icon svg {
