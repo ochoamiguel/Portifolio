@@ -1,0 +1,11 @@
+[
+  { "nome": "HTML5", "classe": "html-icon", "icone": "images/icons/codigo.svg" },
+  { "nome": "CSS3", "classe": "css-icon", "icone": "images/icons/css.svg" },
+  { "nome": "JavaScript", "classe": "js-icon", "icone": "images/icons/codigo.svg" },
+  { "nome": "C/C++", "classe": "c-icon", "icone": "images/icons/codigo.svg" },
+  { "nome": "Git/GitHub", "classe": "git-icon", "icone": "images/icons/git.svg" },
+  { "nome": "Informática<br><small>(Windows/Office)</small>", "classe": "info-icon", "icone": "images/icons/informatica.svg" },
+  { "nome": "Figma", "classe": "figma-icon", "icone": "images/icons/figma.svg" },
+  { "nome": "Python", "classe": "python-icon", "icone": "images/icons/codigo.svg" },
+  { "nome": "SQL", "classe": "sql-icon", "icone": "images/icons/sql.svg" }
+]

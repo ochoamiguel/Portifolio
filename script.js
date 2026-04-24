@@ -173,3 +173,20 @@ fetch('projetos.json')
       `;
     });
   });
+
+  fetch('habilidades.json')
+  .then(res => res.json())
+  .then(habilidades => {
+    const grid = document.getElementById('skills-grid');
+
+    habilidades.forEach(hab => {
+      grid.innerHTML += `
+        <div class="skill-card">
+          <div class="icon-wrapper ${hab.classe}">
+            <!-- ícone mantido via CSS como antes -->
+          </div>
+          <h3>${hab.nome}</h3>
+        </div>
+      `;
+    });
+  });
