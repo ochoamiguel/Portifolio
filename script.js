@@ -151,3 +151,25 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navMenu.classList.toggle('active');
 });
+
+fetch('projetos.json')
+  .then(res => res.json())
+  .then(projetos => {
+    const grid = document.getElementById('projetos-grid');
+
+    projetos.forEach(projeto => {
+      grid.innerHTML += `
+        <div class="projetos-card">
+          <a href="${projeto.link}" target="_blank">
+            <div class="projetos-card-image">
+              <img src="${projeto.imagem}" alt="Preview do projeto ${projeto.nome}">
+            </div>
+            <div class="projetos-card-content">
+              <h3 class="projetos-card-title">${projeto.nome}</h3>
+              <p class="projetos-card-description">${projeto.desc}</p>
+            </div>
+          </a>
+        </div>
+      `;
+    });
+  });

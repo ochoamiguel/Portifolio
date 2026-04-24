@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "DevLink",
+    "desc": "O DevLinks é um agregador de links para usar como cartão de visitas online.",
+    "link": "https://ochoamiguel.github.io/DevLink",
+    "imagem": "images/Cover.jpg"
+  },
+  {
+    "nome": "Currículo",
+    "desc": "Criação de uma página de currículo, desenvolvida como uma atividade do curso de Engenharia da Computação.",
+    "link": "https://ochoamiguel.github.io/Atividade-Faculdade-Eng.Compt-HTML/",
+    "imagem": "images/CurriculoImg.png"
+  }
+]
